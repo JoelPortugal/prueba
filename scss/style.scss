@@ -1,0 +1,417 @@
+@import "utilidades/variables";
+@import "utilidades/listas";
+@import "utilidades/mixin";
+@import "utilidades/media-queries";
+
+
+
+//RESET//
+*{  
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;}
+
+/* REM */
+html{
+  font-size: 62,5%;
+  font-family: 'Playfair Display', serif;
+}
+
+//NAVBAR//
+.navbar {
+  background-color: rgb(0, 0, 0) !important; // Fondo negro
+}
+
+@include tablet{
+  .navbar{
+    padding-left: 1rem;
+  }
+@include mobile{
+  .navbar{
+    padding-left: 1rem;
+  }
+}
+}
+.navbar-nav .nav-link {
+  color: nth($colores, 6) !important; // Fuente blanca
+}
+.navbar.bg-body-tertiary {
+  background-color: $color-principal !important;
+}
+.navbar .navbar-toggler-icon {
+  background-color: black !important; // Ícono del botón hamburguesa 
+}
+.navbar-nav .nav-item:hover {
+  background-color: $color-hover-navbar; /* Cambia el color de fondo en hover */
+}
+
+// BODY GENERAL
+body{
+  background-image: linear-gradient(#000000, #292929);
+  padding: 0;
+  font-family: 'Playfair Display', serif;
+
+
+//FOOTER GENERAL DE TODAS LAS PAGINAS 
+  footer{
+          background-image: linear-gradient(#292929,#525252);
+          color: white;
+          padding: 20px;
+          text-align: center;
+          margin-top: 0;
+          margin-bottom: 1rem;
+          font-family: 'Playfair Display', serif;
+
+          h2{@include estilos-texto-2(16px, center, white)}
+
+          .lista-contactos{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+              li{display: inline;}
+
+              a:hover{
+                color: $color-hover-navbar;
+              }
+
+              a{@include estilos-texto-2(3rem, center, white)}
+          }
+
+          @include tablet{
+            h2{display: none;}
+
+          }
+  }
+
+//PAGINA PRINCIPAL
+
+.section-vehiculos{background-image: linear-gradient(rgba(56, 21, 80, 0.658), black)}
+.section-vehiculos{
+  @include tablet {
+    h1{text-align: center}
+  }
+
+}   
+    h1{@include estilos-texto(24px, left, rgba(255, 255, 255, 0.911), 2rem 1rem 0.5rem 1.5rem, 0)
+    
+  }
+  .menu-imagenes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  
+    a {
+      img{@include estilo-imagenes(100%, 100%, auto)}
+      img{
+        border-radius: 3rem;
+        padding: 1rem 1.5rem 2rem 1.5rem;
+      }
+  
+      &:hover img {
+        filter: grayscale(90%);      
+      }
+    }
+    @include tablet{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+    }
+    @include mobile{
+      display: grid; 
+      grid-template-columns: repeat(1, 1fr);
+
+    }
+  }
+
+//ESTILO DE PAGINA ENCONTRANOS
+.section-contactanos {
+  background-image: linear-gradient(to right, rgb(56, 21, 80), black);
+  font-family: 'Playfair Display', serif;
+
+
+  .contenedor-mapa {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    height: 0;
+
+    .mapa {
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+      }
+    }
+
+  }
+
+  h1 {@include estilos-texto(20px, center, white, 2rem 2rem 0rem 2rem, 0)}
+
+  .contactanos-2 {
+    display: flex;
+    padding: 2rem;
+    background-image: linear-gradient(to right, rgb(56, 21, 80), black);
+
+    h2 {@include estilos-texto-2(20px, left, white)}
+
+    img {@include estilo-imagenes(100%, none, 100%)}
+    img{border-radius: 3rem;}
+  }
+}
+
+@include tablet{
+  .section-contactanos{
+    h1{font-size: 20px;}
+  
+  .contactanos-2{
+    display: flex;
+    h2{font-size: 17px;}
+  }
+}
+}
+
+@include mobile{
+  .section-contactanos{
+    h1{font-size: 18px;}
+  
+  .contactanos-2{
+    display: flex;
+    h2{font-size: 15px;}
+  }
+}
+}
+
+
+
+
+
+//ESTILO DE PAGINA HISTORIA
+.origen, .origen-2, .origen-3 {
+  display: flex;
+  padding: 1rem 10rem;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+  }
+
+  p {@include estilos-texto(18px, left, white, 0, 0)}
+}
+
+.origen-2, .origen-3 {
+  flex-direction: column;
+}
+
+.origen-3 img {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+.main-historia{
+      h1{ @include estilos-texto-2 (24px, center, white)}
+}
+.origen, .origen-2, .origen-3{
+  @include tablet{
+    padding: 2rem;
+    display: flex;
+
+    h1{font-size: 18px;
+    padding: 0rem;}
+    p{font-size: 16px;
+    text-align: justify;
+    margin-bottom: 1rem}
+    img{padding-left: 0.5rem;}
+  }
+}
+
+.origen, .origen-2, .origen-3{
+  @include mobile{
+    display: flex;
+    padding: 1rem;
+
+    h1{font-size: 17px;}
+    p{font-size: 15px;}
+  }
+}
+
+//ESTILO DE PAGINA INNOVACION
+.innovacion-general {
+
+  h1{@include estilos-texto(24px, center, rgb(255, 255, 255), 2rem, 0)}
+  p{@include estilos-texto-2(20px, justify, rgba(255, 255, 255, 0.644))}
+  font-family: 'Playfair Display', serif;
+
+
+  .avances-innovadores {
+    padding: 1rem 10rem;
+
+  @include tablet{
+    padding: 1rem 5rem;
+
+    h6{ font-size: 18px;
+        margin-top: 1px;}
+    h1{font-size: 21px;}
+    h4{font-size: 20px;}
+    p{font-size: 18px;}
+  }
+
+  @include mobile{
+
+    padding: 1rem 2rem;
+
+      h6{ font-size: 16px;
+          margin-top: 0px;}
+      h1{font-size: 19px;}
+      h4{font-size: 18px;}
+      p{font-size: 16px;}
+    }
+
+    h4 {
+      color: rgb(255, 255, 255);
+      text-align: left;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      margin-bottom: 3rem;
+      text-align: justify;
+    }
+  }
+}
+
+h6{@include estilos-texto-2 (20px, center, white)}
+
+
+.img-oliver {
+  img {
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+
+//ESTILO DE PAGINA DE TODOS Las PAGINAS DE MODELOS
+.body-911 {
+  background-image: linear-gradient(#000000,#292929);
+
+  .carousel-caption{
+    h5{
+      font-size: 24px;
+    }
+    p{
+      font-size: 20px;
+    }
+  }
+  .contenido-carrera {@include display-flex(flex, column, center)}
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    color: white;
+  }
+
+  .t-g-911 {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    text-align: justify;
+    padding: 2rem;
+    background-color: rgb(0, 0, 0);
+
+    .datos-911-carrera {
+      max-width: 300px;
+      text-align: center;
+
+      h2 {
+        display: block;
+        margin: 0;
+        font-size: 10px;
+        color: gray;
+        text-align: center;
+      }
+
+      p {
+        display: block;
+        margin: 0;
+        font-size: 20px;
+        color: white;
+      }
+
+      img {@include estilo-imagenes-2(300px, 150px, 2rem 0 0 0)}
+    }
+  }
+
+.descripcion-911 {@include estilo-imagenes-2(300px, 150px, 2rem 0 2rem 0)}
+}
+.contenedor-6{margin-bottom: 2rem;}
+.contenedor-total {@include display-flex(flex, column, center)}
+
+@include tablet{
+  .carrousel-carrera{
+    padding: 0 1rem 0 1rem;
+  }
+}
+
+@include mobile{
+  .carrousel-carrera{
+    padding: 0 2rem 0 2rem;
+  }
+}
+
+
+
+//ESTILO DE PAGINA MODELOS
+.contenedor-total{
+  background-image: linear-gradient(rgb(28, 9, 41), rgb(19, 19, 19));
+
+    h3{@include estilos-texto(24px, center, rgb(255, 255, 255), 2rem 2rem 1rem 2rem, 2rem 0 1rem 0)}
+
+    h1{@include estilos-texto(24px, center, white, 2rem 1rem 0rem 1rem, 0rem)}
+
+    .black-bg-card{
+      background-color: #000000;
+      align-items: center;
+     
+      h5{@include estilos-texto-2(20px, center, white)}
+
+      p{@include estilos-texto-2(20px, center, white)}
+    }
+}
+
+@include tablet {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .col-md-4 {
+    flex: 0 0 calc(50% - 20px);
+    margin: 10px;
+    padding: 20px;
+  }
+}
+
+@include mobile {
+  .col-md-4 {
+    margin: 5px;
+    padding: 10px;
+  }
+}
+
+}
+
+
+
